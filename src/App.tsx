@@ -1,13 +1,11 @@
 import "./App.css";
-import { Link } from "react-router";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-      <Link to="/basic-form">
-        <h4>basic form</h4>
-      </Link>
-    </>
+    <main>
+      <Home />
+    </main>
   );
 }
 

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Requisition Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            background-color: white;
+            padding: 15px;
+            line-height: 1.2;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .mr-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+        }
+
+        /* Header Section */
+        .header-row td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .logo-cell {
+            width: auto;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            height: auto;
+        }
+
+        .title-cell {
+            width: 55%;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            height: auto;
+        }
+
+        .form-info-cell {
+            width: 30%;
+            text-align: right;
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 1.3;
+            vertical-align: middle;
+            height: 30px;
+        }
+
+        /* Vessel and MR Info Section */
+        .info-row td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: middle;
+            height: 40px;
+        }
+
+        .vessel-info {
+            width: auto;
+            font-weight: bold;
+            font-size: 12px;
+            border-right: none !important;
+        }
+
+        .vessel-input {
+            width: 25%;
+            font-size: 12px;
+            border-left: none !important;
+        }
+
+        .mr-info {
+            width: 22.5%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Table Headers */
+        .table-headers td {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            background-color: #f5f5f5;
+            font-size: 12px;
+        }
+
+        .no-header {
+            width: 3%;
+        }
+
+        .description-header {
+            width: 35%;
+        }
+
+        .remarks-header {
+            width: 30%;
+        }
+
+        .qty-header {
+            width: 10%;
+        }
+
+        .unit-header {
+            width: 10%;
+        }
+
+        /* Data Rows */
+        .data-row td {
+            border: 1px solid #000;
+            padding: 4px;
+            vertical-align: top;
+            height: 30px;
+            font-size: 11px;
+        }
+
+        .no-cell {
+            text-align: center;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .description-cell {
+            text-align: left;
+            padding-left: 6px;
+        }
+
+        .remarks-cell {
+            text-align: left;
+            padding-left: 6px;
+        }
+
+        .qty-cell {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .unit-cell {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* Signature Section */
+        .signature-row td {
+            border: 1px solid #000;
+            padding: 8px;
+            vertical-align: top;
+            height: 80px;
+            position: relative;
+        }
+
+        .signature-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+
+        .signature-role {
+            text-align: center;
+            font-size: 9px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .signature-space {
+            height: 30px;
+            margin-bottom: 8px;
+        }
+
+        .date-line {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            font-size: 10px;
+            text-align: left;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                font-size: 11px;
+            }
+            
+            .form-container {
+                max-width: none;
+                padding: 0;
+            }
+            
+            .mr-table {
+                page-break-inside: avoid;
+            }
+            
+            .data-row td {
+                height: 25px;
+            }
+            
+            .signature-row td {
+                height: 70px;
+            }
+        }
+
+        /* Form styling */
+        .underline {
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            min-width: 120px;
+            height: 15px;
+        }
+
+        .mr-field {
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            min-width: 80px;
+            height: 15px;
+            margin-top: 3px;
+        }
+
+        /* Custom */
+        .vessel-info, .no-header, .no-cell {
+          width: 8%;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <table class="mr-table">
+            <!-- Header Section -->
+            <tr class="header-row">
+                <td rowspan="3" colspan="2" class="logo-cell">
+                    LOGO
+                </td>
+                <td rowspan="3" colspan="2" class="title-cell">
+                    MATERIAL REQUISITION (MR)
+                </td>
+                <td colspan="2" class="form-info-cell">
+                    Form No. FRM/PNL/01/03
+                </td>
+            </tr>
+            <tr class="header-row">
+                <td colspan="2" class="form-info-cell">
+                    Revision No. 003
+                </td>
+            </tr>
+            <tr class="header-row">
+                <td colspan="2" class="form-info-cell">
+                    Update Doc.: 23 Juni 2023
+                </td>
+            </tr>
+            
+            <!-- Vessel and MR Info Section -->
+            <tr class="info-row">
+                <td class="vessel-info">
+                    Vessel
+                </td>
+                <td class="vessel-input">
+                   : <span class="underline"></span>
+                </td>
+                <td colspan="2" rowspan="2" class="mr-info">
+                    MR No. : <span class="mr-field">12345678</span>
+                </td>
+                <td colspan="2" rowspan="2" class="mr-info">
+                    MR Date : <span class="mr-field">23 Juni 2023</span> 
+                </td>
+            </tr>
+            <tr class="info-row">
+                <td class="vessel-info">
+                    Dept
+                </td>
+                <td class="vessel-input">
+                    : <span class="underline"></span>
+                </td>
+            </tr>
+            
+            <!-- Table Headers -->
+            <tr class="table-headers">
+                <td class="no-header">No.</td>
+                <td colspan="2" class="description-header">Description</td>
+                <td class="remarks-header">Remarks</td>
+                <td class="qty-header">Qty</td>
+                <td class="unit-header">Unit</td>
+            </tr>
+            
+            <!-- Data Rows -->
+            <tr class="data-row">
+                <td class="no-cell">1</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">2</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">3</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">4</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">5</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">6</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">7</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">8</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">9</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">10</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">11</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            <tr class="data-row">
+                <td class="no-cell">12</td>
+                <td colspan="2" class="description-cell"></td>
+                <td class="remarks-cell"></td>
+                <td class="qty-cell"></td>
+                <td class="unit-cell"></td>
+            </tr>
+            
+            <!-- Signature Section -->
+            <tr class="signature-row">
+                <td colspan="2">
+                    <div class="signature-title">Requested By</div>
+                    <div class="signature-role">C/E, C/O, Storeman / Office</div>
+                    <div class="signature-space"></div>
+                    <div class="date-line">Date : <span>23 Juni 2023</span></div>
+                </td>
+                <td colspan="2">
+                    <div class="signature-title">Verified By</div>
+                    <div class="signature-role">Master / Tech Mgr, Dept Mgr</div>
+                    <div class="signature-space"></div>
+                    <div class="date-line">Date : <span>23 Juni 2023</span></div>
+                </td>
+                <td colspan="2">
+                    <div class="signature-title">(3) Approved By</div>
+                    <div class="signature-role">Head of Div</div>
+                    <div class="signature-space"></div>
+                    <div class="date-line">Date : <span>23 Juni 2023</span></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
