@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -202,20 +203,20 @@
                 padding: 0;
                 font-size: 11px;
             }
-            
+
             .form-container {
                 max-width: none;
                 padding: 0;
             }
-            
+
             .mr-table {
                 page-break-inside: avoid;
             }
-            
+
             .data-row td {
                 height: 25px;
             }
-            
+
             .signature-row td {
                 height: 70px;
             }
@@ -238,18 +239,22 @@
         }
 
         /* Custom */
-        .vessel-info, .no-header, .no-cell {
-          width: 8%;
+        .vessel-info,
+        .no-header,
+        .no-cell {
+            width: 8%;
         }
     </style>
 </head>
+
 <body>
     <div class="form-container">
         <table class="mr-table">
             <!-- Header Section -->
             <tr class="header-row">
                 <td rowspan="3" colspan="2" class="logo-cell">
-                    LOGO
+                    <img src="../../assets/images/logo-triton.png" alt="Company Logo"
+                        style="max-width: 100px; max-height: 50px;">
                 </td>
                 <td rowspan="3" colspan="2" class="title-cell">
                     MATERIAL REQUISITION (MR)
@@ -268,20 +273,20 @@
                     Update Doc.: 23 Juni 2023
                 </td>
             </tr>
-            
+
             <!-- Vessel and MR Info Section -->
             <tr class="info-row">
                 <td class="vessel-info">
                     Vessel
                 </td>
                 <td class="vessel-input">
-                   : <span class="underline"></span>
+                    : <span class="underline"></span>
                 </td>
                 <td colspan="2" rowspan="2" class="mr-info">
                     MR No. : <span class="mr-field">12345678</span>
                 </td>
                 <td colspan="2" rowspan="2" class="mr-info">
-                    MR Date : <span class="mr-field">23 Juni 2023</span> 
+                    MR Date : <span class="mr-field">23 Juni 2023</span>
                 </td>
             </tr>
             <tr class="info-row">
@@ -292,7 +297,7 @@
                     : <span class="underline"></span>
                 </td>
             </tr>
-            
+
             <!-- Table Headers -->
             <tr class="table-headers">
                 <td class="no-header">No.</td>
@@ -301,7 +306,7 @@
                 <td class="qty-header">Qty</td>
                 <td class="unit-header">Unit</td>
             </tr>
-            
+
             <!-- Data Rows -->
             <tr class="data-row">
                 <td class="no-cell">1</td>
@@ -317,77 +322,7 @@
                 <td class="qty-cell"></td>
                 <td class="unit-cell"></td>
             </tr>
-            <tr class="data-row">
-                <td class="no-cell">3</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">4</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">5</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">6</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">7</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">8</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">9</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">10</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">11</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            <tr class="data-row">
-                <td class="no-cell">12</td>
-                <td colspan="2" class="description-cell"></td>
-                <td class="remarks-cell"></td>
-                <td class="qty-cell"></td>
-                <td class="unit-cell"></td>
-            </tr>
-            
+
             <!-- Signature Section -->
             <tr class="signature-row">
                 <td colspan="2">
@@ -412,4 +347,5 @@
         </table>
     </div>
 </body>
+
 </html>
